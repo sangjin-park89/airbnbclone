@@ -1,12 +1,14 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 //
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 // 페이지
-import MainPage from "./pages/MainPage";
+// import MainPage from "./pages/MainPage";
 import DetailPage from "./pages/DetailPage";
 import NotFoundPage from "./pages/NotFoundPage.jsx"
+import Register from "./components/user/Register";
+
 function App() {
     return (
         <>
@@ -17,7 +19,7 @@ function App() {
                 <div>드롭다운(로그인)</div>
             </div>
             <Routes>
-                <Route path="/" element={<MainPage />} />
+                <Route path="/" element={<Register />} />
 				{/* 여기서부터는 api명세와 컴포넌트명 확인하고 이름 고치기 */}
                 <Route path="/detail">
 					<Route path=":postid" element={<DetailPage />} />
