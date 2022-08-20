@@ -1,29 +1,45 @@
-import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
-const reviewAdapter = createEntityAdapter({
-    selectId: (review) => review.postid,
-    sortComparer: (a,b) => a.title.localeCompare(b.title),
-})
+const initialState = {
+    ids: ['review1', 'review2'],
+    entities: {
+        "review1" : {
+            "username" : "",
+            "review" : "",
+            "reviewId": "review1",
+            "modifiedAt": "2020-04-09T19",
+            "postId": ""
+        },
+        "review1" : {
+            "username" : "",
+            "review" : "",
+            "reviewId": "review2",
+            "modifiedAt": "2020-04-09T19",
+            "postId": ""
+        },
+    }
+}
 
 export const reviewSlice = createSlice({
-    name: 'review',
-    initialState: reviewAdapter.getInitialState(),
+    name: 'reviews',
+    initialState,
     reducers: {
-        load: (state, action) => {
-
+        addReview: (state, action) => {
+            state.push(action.payload)
         },
-        add: (state, action) => {
-
+        updateReview: (state, action) => {
+            const { reviewId } = action.payload;
+            state.entities[reviewId] = action.payload;
+            state.ids.push(action.payload.reviewId);
         },
-        update: (state, action) => {
+        deleteReview: (state, action) => {
+            const { id } = action.payload;
+            const target = state.ids.find(id === action.payload.id)
 
-        },
-        delete: (state, action) => {
-            state.value = action.payload
         }
     }
 })
 
-export const { load, add, update } = reviewSlice.action ;
+export const { addReview, updateReview, deleteReview } = reviewSlice.actions
 
-export default reviewSlice.reducer;
+export default reviewSlice.reducer
