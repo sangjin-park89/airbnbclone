@@ -1,7 +1,6 @@
 // import react from 'react';
 import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
-// import useInput from '../../hooks/useInput';
 
 const Register = () => {
     // 닉네임, 아이디, 비밀번호 확인
@@ -48,7 +47,7 @@ const Register = () => {
 
     // 비밀번호 조건 함수
     const onChangePW = useCallback((e) => {
-        const pWRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/
+        const pWRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/
         const pWCurrent = e.target.value
         setPW(pWCurrent)
         if ( !pWRegex.test(pWCurrent) ) {
@@ -65,19 +64,20 @@ const Register = () => {
         const pWConfirmCurrnt = e.target.value
         setPWConfirm(pWConfirmCurrnt)
     },[])
-    // useState가 비동기 함수 임으로 1번씩 반응이 느린 부분 수정
+    // useState가 비동기 함수 임으로 1글자 씩 반응이 느린 부분 수정
     useEffect(() => {
         if (pWConfirm.length > 0){
         if ( pW === pWConfirm){
             setIsPWConfirm(true)
-            setpWConfirmMessege('비밀번호를 똑같이 입력했어요 :)') 
-            
+            setpWConfirmMessege('비밀번호를 똑같이 입력했어요 :)')
         } else {
             setIsPWConfirm(false)
-            setpWConfirmMessege('비밀번호가 틀려요.. 다시 확인해주세요 ㅠㅠ') 
-            
+            setpWConfirmMessege('비밀번호가 틀려요! 다시 확인해주세요ㅠㅠ')
         }}
     } , [pW, pWConfirm]);
+
+
+    
 
     
     
