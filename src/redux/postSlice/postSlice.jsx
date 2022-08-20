@@ -1,30 +1,51 @@
-import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { apis } from '../../api/api';
 
-const postsAdapter = createEntityAdapter({
-    selectId: (post) => post.postId,
-    sortComparer: (a,b) => a.postId.localeCompare(b.postId),
+
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
+    const response = await apis.getAllPostCard();
+    return response.data
 })
 
-const postsSlice = createSlice({
+const initialState = {
+    posts : []
+}
+
+const postSlice = createSlice({
     name: 'posts',
-    initialState: postsAdapter.getInitialState(),
+    initialState,
     reducers: {
-        // Async로 모든 post를 받아오는 요청과 그걸 state에 넣는 로직 작성 필요
-        // createEntityAdapter로 nomalization된 state 필드 만들어 수정하기
-        addPost: (state, action) => {
-            state.push(action.payload)
+        addPost(state, action) {
+            state.posts.push(action.payload)
         },
-        updatePost: (state, action) => {
-            //수정 필요
-            const target = state.find(postId === action.payload.postId)
-            return target.content
+        updatePost(state, action) {
+            const { postId, contents } = action.payload;
+            const selectedPost = state.posts.find( id => id === postId );
+            if(selectedPost){
+                selectedPost.contents = contents
+                // ... ...
+            }
         },
-        deletePost: (state, action) => {
-            state.filter(state.postId !== action.payload.postId)
+        deletePost(state, action) {
+            const {id} = action.payload;
+            const selectedPost = state.posts.find( id => id == postId);
+            if(selectedPost) state.filter(post => post.postId !== id);
         }
+    },
+    extraReducers: builder => {
+        builder
+            .addCase(fetchPosts.pending, (state, action) => {
+                state.status = 'loading'
+            })
+            .addCase(fetchPosts.fulfilled, (state, action) => {
+
+            })
+            .addCase(fetchPosts.rejected, (state, action) => {
+                
+            })
     }
 })
 
-export const { addPost, updatePost, deletePost } = postsSlice.actions;
+export const { addPost, updatePost, deletePost } = postSlice.actions
 
-export default postsSlice.reducer
+export default postSlice.reducer
