@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 //브라우저 라우터
 import { BrowserRouter } from "react-router-dom";
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <Provider store={store}>

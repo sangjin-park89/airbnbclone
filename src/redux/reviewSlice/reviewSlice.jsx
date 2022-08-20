@@ -70,7 +70,6 @@ export const reviewSlice = createSlice({
         deleteReview: (state, action) => {
             const { id } = action.payload;
             const target = state.ids.find(id === action.payload.id)
-
         }
     }
 })
@@ -78,3 +77,4 @@ export const reviewSlice = createSlice({
 export const { addReview, updateReview, deleteReview } = reviewSlice.actions
 
 export default reviewSlice.reducer
+

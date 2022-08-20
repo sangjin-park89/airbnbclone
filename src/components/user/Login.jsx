@@ -1,20 +1,33 @@
 // import react from 'react';
 import styled from 'styled-components';
+import UseInput from '../../hooks/useInput';
 
 const login = () => {
+    // 닉네임, 아이디, 비밀번호 확인
+    // const [onNickName, setOnNickName] = UseInput()
+    const [onID, setOnID] = UseInput()
+    const [onPW, setOnPW] = UseInput()
+    
+    const body = {
+        // 닉네임?
+        userUsername : onID,
+        userPassword : onPW
+    }
+    console.log(body)
+    
     return (
         <Container>
             <LoginBox>
                 <h5>로그인</h5>
                 <h4>에어비앤비에 오신 것을 환영합니다.</h4>
-                <p>닉네임</p>
-                <input></input>
+                {/* <p>닉네임</p>
+                <input onChange={setOnNickName}></input> */}
                 <p>아이디</p>
-                <input></input>
+                <input type='text' onChange={setOnID}></input>
                 <p>비밀번호</p>
-                <input></input>
+                <input type='password' onChange={setOnPW}></input>
                 <br />
-                <StButton>로그인</StButton>
+                <StButton type='button' onClick={console.log()}>로그인</StButton>
             </LoginBox>
         </Container>
     );
