@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { saveToken, getToken, removeToken} from '../utils/auth'
+import { saveToken, getToken, removeToken } from '../utils/auth'
 
 // 서버 연결시 해제 
-const BASE_URL = process.env.REACT_APP_SERVER_URL;
+const BASE_URL = 'http://54.180.220.222:8080';
 
 // 인스턴스 생성
 const api = axios.create({
@@ -48,7 +48,7 @@ export const apis = {
     //로그인
     login: (userData) => api.post('/api/user/login', userData),
     // 회원가입 
-    signup: (userData) => api.post('/user/signup', userData),
+    signup: (userData) => api.post('api/user/signup', userData),
     // 아이디 중복 검사 (추가요소)
 
     // 메인 페이지 조회

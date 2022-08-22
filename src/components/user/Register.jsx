@@ -1,5 +1,4 @@
-// import react from 'react';
-import React, { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import { apis } from '../../api/api';
 
@@ -77,28 +76,26 @@ const Register = () => {
         }}
     } , [pW, pWConfirm]);
 
-    const body = {
-        userUsername : id,
-        userNickname : nickName,
-        userPassword : pW,
-    }
 
     // axios 
     const onSubmithandler = async (e) => {
-        e.prevenDefault()
-        console.log(body)
-        try{
-            const response = await apis.singup(
-                {
-                    userUsername : id,
-                    userNickname : nickName,
-                    userPassword : pW,
-                }
-            )
-            console.log(response)
-            
-        } catch (error) {
-            console.log(error)
+        e.preventDefault()
+        if (pW === pWConfirm){
+            try{
+                const response = await apis.signup(
+                    {
+                        userUsername : id,
+                        userNickname : nickName,
+                        userPassword : pW,
+                    }
+                )
+                console.log(response)
+                
+            } catch (error) {
+                console.log(error)
+            }
+        } else {
+            alert('비밀번호를 확인해주세요!')
         }
     }
 
@@ -108,7 +105,7 @@ const Register = () => {
 
     return (
         <Container>
-            <LoginBox onSubmit={onSubmithandler}>
+            <SignInBox onSubmit={onSubmithandler}>
                 <h5>회원가입</h5>
                 <h4>에어비앤비에 오신 것을 환영합니다.</h4>
                 <p>닉네임</p>
@@ -148,7 +145,7 @@ const Register = () => {
                 }
                 <br />
                 <StButton>회원가입</StButton>
-            </LoginBox>
+            </SignInBox>
         </Container>
     );
 }
@@ -162,7 +159,7 @@ const Container = styled.div`
     min-height: 100vh;
 `
 
-const LoginBox = styled.form`
+const SignInBox = styled.form`
     height : 300px;
     width : 500px;
     padding: 3rem;

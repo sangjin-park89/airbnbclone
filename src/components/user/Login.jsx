@@ -6,7 +6,8 @@ import { saveToken } from '../../utils/auth';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
     // 닉네임, 아이디, 비밀번호 확인
     // const [onId, setOnId] = UseInput()
     // const [onPassword, setOnPassword] = UseInput()
@@ -23,6 +24,7 @@ const Login = () => {
     
     // const { userId.state, userId.onChange } = useInput();
 
+    // axios
     const onSubmithandler = async (e) => {
         e.preventDefault()
         // console.log(body)
@@ -35,18 +37,18 @@ const Login = () => {
             )
 
             const accessToken = response?.data?.accessToken;
-            
             if(accessToken) {
-                saveToken(accessToken)
+                saveToken(accessToken);
                 navigate('/');
-            }
-            
+            };
+            console.log(response)
         } catch (error) {
             console.log(error)
         }
     }
     
     return (
+
         <Container>
             <LoginBox onSubmit={onSubmithandler}>
                 <h5>로그인</h5>
@@ -63,6 +65,7 @@ const Login = () => {
                 <StButton>로그인</StButton>
             </LoginBox>
         </Container>
+
     );
 }
 
