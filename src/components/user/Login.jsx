@@ -1,15 +1,15 @@
 // import { useState } from 'react';
 import styled from 'styled-components';
-import UseInput from '../../hooks/useInput'
+import useInput from '../../hooks/useInput'
 import { apis } from '../../api/api';
 
 
-const login = () => {
+const Login = () => {
     // 닉네임, 아이디, 비밀번호 확인
     // const [onId, setOnId] = UseInput()
     // const [onPassword, setOnPassword] = UseInput()
-    const userId = UseInput();
-    const userPassword = UseInput();
+    const userId = useInput();
+    const userPassword = useInput();
     // const [value, setValue] = useState({
     //     id: "",
     //     password: "",
@@ -20,24 +20,26 @@ const login = () => {
     // }
     
     // const { userId.state, userId.onChange } = useInput();
-    const body = {
-        userUsername : userId,
-        userPassword : userPassword
-    }
+    // const body = {
+    //     userUsername : userId,
+    //     userPassword : userPassword
+    // }
     
-    const onSubmithandler = (e) => {
+    const onSubmithandler = async (e) => {
         e.preventDefault()
-        console.log(body)
+        // console.log(body)
         try{
-            apis.login(
+            const response  = await apis.login(
                 {
-                    userUsername : userId,
-                    userPassword : userPassword
+                    userUsername : userId.state,
+                    userPassword : userPassword.state
                 }
             )
-            alert("로그인 성공")
+            console.log(response)
+
         } catch (error) {
-            alert("로그인 다시시도")
+            console.log(error)
+
         }
     }
     
@@ -61,7 +63,7 @@ const login = () => {
     );
 }
 
-export default login
+export default Login
 
 const Container = styled.div`
     display: grid;

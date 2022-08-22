@@ -7,11 +7,11 @@ function FetchTest() {
     const review = useSelector(state => state.reviews);
     console.log("state안쪽 한번 보자", review);
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch()
-    },[])
+    // useEffect(() => {
+    //     dispatch()
+    // },[])
     
     return (
         <div>
