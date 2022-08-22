@@ -16,13 +16,13 @@ const fetchGetReviews = createAsyncThunk(
     }
 )
 
-const fetchPostReview = createAsyncThunk(
-    'review/fetchPostReview',
-    async (postData) => {
-        const response = await apis.postPostCard(postData)
-        return response.data
-    }
-)
+// const fetchPostReview = createAsyncThunk(
+//     'review/fetchPostReview',
+//     async (postData) => {
+//         const response = await apis.postPostCard(postData)
+//         return response.data
+//     }
+// )
 
 const fetchRemoveReview = createAsyncThunk(
     'review/fetchRemoveReview',
@@ -46,14 +46,15 @@ export const reviewSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchGetReviews.fulfilled, (state, action) => {
+                console.log(action);
                 reviewAdapter.setAll(action.payload)
             })
-            .addCase(fetchPostReview.fulfilled, (state, action) => {
-                reviewAdapter.upsertOne(action.payload)
-            })
-            .addCase(fetchRemoveReview.fulfilled, (state, action) => {
-                reviewAdapter.removeOne(action.payload)
-            })
+            // .addCase(fetchPostReview.fulfilled, (state, action) => {
+            //     reviewAdapter.upsertOne(action.payload)
+            // })
+            // .addCase(fetchRemoveReview.fulfilled, (state, action) => {
+            //     reviewAdapter.removeOne(action.payload)
+            // })
     }
 })
 

@@ -1,20 +1,19 @@
 // import react from 'react';
 import styled from 'styled-components';
-import useInput from '../../hooks/useInput';
+import UseInput from '../../hooks/useInput';
 
 const login = () => {
     // 닉네임, 아이디, 비밀번호 확인
     // const [onNickName, setOnNickName] = UseInput()
-    const userId = useInput();
-    const userPassword = useInput();
+    const userId = UseInput();
+    const userPassword = UseInput();
     
     // const { userId.state, userId.onChange } = useInput();
-    const body = {
-        // 닉네임?
-        userUsername : userId.state,
-        userPassword : userPassword.state
-    }
-    console.log(body)
+    // const body = {
+    //     // 닉네임?
+    //     userUsername : userId.state,
+    //     userPassword : userPassword.state
+    // }
     
     return (
         <Container>
