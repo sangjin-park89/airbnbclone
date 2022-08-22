@@ -1,16 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { apis } from '../../api/api';
 
-
+//Thunk
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
     const response = await apis.getAllPostCard();
     return response.data
 })
 
-const initialState = {
-    posts : []
-}
+const initialState = [];
 
+
+// action type, creater & reducers
 const postSlice = createSlice({
     name: 'posts',
     initialState,

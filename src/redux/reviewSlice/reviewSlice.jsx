@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// nomalized state
+
 // const initialState = {
 //     ids: ['review1', 'review2'],
 //     entities: {

@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 //리덕스 프로바이더
-import { store } from "./redux/configureStore";
+import store from "./redux/configureStore";
 import { Provider } from "react-redux";
 //브라우저 라우터
 import { BrowserRouter } from "react-router-dom";
