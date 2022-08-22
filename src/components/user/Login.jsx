@@ -2,8 +2,11 @@
 import styled from 'styled-components';
 import useInput from '../../hooks/useInput'
 import { apis } from '../../api/api';
+import { saveToken } from '../../utils/auth';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate()
     // 닉네임, 아이디, 비밀번호 확인
     // const [onId, setOnId] = UseInput()
     // const [onPassword, setOnPassword] = UseInput()
@@ -30,7 +33,14 @@ const Login = () => {
                     userPassword : userPassword.state
                 }
             )
-            console.log(response)
+
+            const accessToken = response?.data?.accessToken;
+            
+            if(accessToken) {
+                saveToken(accessToken)
+                navigate('/');
+            }
+            
         } catch (error) {
             console.log(error)
         }

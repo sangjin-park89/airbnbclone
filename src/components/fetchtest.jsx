@@ -1,24 +1,16 @@
-// import axios from "axios";
-// import React, { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { apis } from "../api/api";
+import React, { useEffect } from "react";
+import { fetchGetReviews } from '../redux/reviewSlice/reviewSlice';
+import {useDispatch} from "react-redux"
 
-// function FetchTest() {
-//     const review = useSelector(state => state.reviews);
-//     console.log("state안쪽 한번 보자", review);
+const Fetchtest = () => {
+    const dispatch = useDispatch();
 
-//     const dispatch = useDispatch()
-
-//     useEffect(() => {
-//         dispatch()
-//     },[])
-
+    useEffect(() => {
+        dispatch(fetchGetReviews())
+    }, [])
     
-//     return (
-//         <div>
-//             hi!
-//         </div>
-//     )
-// }
 
-// export default FetchTest;
+    return <div>fetchtest</div>
+};
+
+export default Fetchtest;

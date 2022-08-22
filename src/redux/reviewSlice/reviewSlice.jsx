@@ -1,18 +1,18 @@
 import { createSlice, createEntityAdapter, createAsyncThunk } from "@reduxjs/toolkit";
 import { apis } from "../../api/api";
 
-// 정규화된 상태를 제공하는 api
+//정규화된 상태를 제공하는 api
 const reviewAdapter = createEntityAdapter({
-    selectId: (review) => review.reviewId,
-    sortComparer: (a,b) => a.reviewId.localeCompare(b.reviewId)
-})
+    selectId: (entity) => entity.reviewId,
+    sortComparer: (a, b) => {a.reviewId.localCompare(b.reviewId)}
+});
 
 //Thunk 비동기 통신용
-const fetchGetReviews = createAsyncThunk(
+export const fetchGetReviews = createAsyncThunk(
     'reviews/fetchGetReviews',
     async () => {
-        const response = await apis.getAllPostCard()
-        return response.data
+        const response = await axios.get("https://jsonplaceholder.typicode.com/comments");
+        return response.data;
     }
 )
 
@@ -35,30 +35,14 @@ const fetchGetReviews = createAsyncThunk(
 // 리듀서, 추가 리듀서
 export const reviewSlice = createSlice({
     name: 'reviews',
-    initialState: reviewAdapter.getInitialState({
-        loading : 'idle',
-    }),
-    reducers: {
-        addReview: reviewAdapter.addOne,
-        updateReview: reviewAdapter.updateOne,
-        deleteReview: reviewAdapter.removeOne,
-    },
+    initialState: reviewAdapter.getInitialState(),
+    reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchGetReviews.fulfilled, (state, action) => {
-                console.log(action);
-                reviewAdapter.setAll(action.payload)
-            })
-            // .addCase(fetchPostReview.fulfilled, (state, action) => {
-            //     reviewAdapter.upsertOne(action.payload)
-            // })
-            // .addCase(fetchRemoveReview.fulfilled, (state, action) => {
-            //     reviewAdapter.removeOne(action.payload)
-            // })
+            .addCase(fetchGetReviews.fulfilled, reviewAdapter.setAll)
+            .addCase(fetchGetReviews.rejected, () => {})
     }
 })
-
-export const { addReview, updateReview, deleteReview } = reviewSlice.actions
 
 export default reviewSlice.reducer
 
