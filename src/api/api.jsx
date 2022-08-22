@@ -46,9 +46,9 @@ apiMultiType.interceptors.request.use((config) => {
 // apis
 export const apis = {
     //로그인
-    login: () => api.post('/user/login'),
+    login: (userData) => api.post('/user/login', userData),
     // 회원가입 
-    signup: () => api.post('/user/signup'),
+    signup: (userData) => api.post('/user/signup', userData),
     // 아이디 중복 검사 (추가요소)
 
     // 메인 페이지 조회
