@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import useInput from '../../hooks/useInput'
 import { apis } from '../../api/api';
 
-/** 컴포넌트 이름은 대문자로  */ 
 const Login = () => {
     // 닉네임, 아이디, 비밀번호 확인
     // const [onId, setOnId] = UseInput()
@@ -21,27 +20,19 @@ const Login = () => {
     
     // const { userId.state, userId.onChange } = useInput();
 
-
-    const body = {
-        userUsername : userId.state,
-        userPassword : userPassword.state,
-    }
-
     const onSubmithandler = async (e) => {
         e.preventDefault()
-        console.log(body)
+        // console.log(body)
         try{
-            const response = await apis.login(
+            const response  = await apis.login(
                 {
                     userUsername : userId.state,
                     userPassword : userPassword.state
                 }
             )
-            // alert("로그인 성공")
-            console.log(response);
+            console.log(response)
         } catch (error) {
-            console.log(error);
-            // alert("로그인 다시시도")
+            console.log(error)
         }
     }
     
@@ -66,6 +57,7 @@ const Login = () => {
 }
 
 export default Login;
+
 
 const Container = styled.div`
     display: grid;

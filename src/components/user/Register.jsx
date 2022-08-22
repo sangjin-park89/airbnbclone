@@ -1,6 +1,7 @@
 // import react from 'react';
 import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
+import { apis } from '../../api/api';
 
 const Register = () => {
     // 닉네임, 아이디, 비밀번호 확인
@@ -36,8 +37,8 @@ const Register = () => {
     // 아이디 조건 함수
     const onChangeId = useCallback((e) => {
         setId(e.target.value)
-        if(e.target.value.length < 4 || e.target.value.length > 8) {
-            setIdMessege('4글자 이상 8글자 미만으로 입력해주세요')
+        if(e.target.value.length < 6 || e.target.value.length > 10) {
+            setIdMessege('6글자 이상 10글자 미만으로 입력해주세요')
             setIsId(false)
         } else {
             setIdMessege('올바른 아이디 형식입니다 :)')
@@ -76,8 +77,30 @@ const Register = () => {
         }}
     } , [pW, pWConfirm]);
 
+    const body = {
+        userUsername : id,
+        userNickname : nickName,
+        userPassword : pW,
+    }
 
-    
+    // axios 
+    const onSubmithandler = async (e) => {
+        e.prevenDefault()
+        console.log(body)
+        try{
+            const response = await apis.singup(
+                {
+                    userUsername : id,
+                    userNickname : nickName,
+                    userPassword : pW,
+                }
+            )
+            console.log(response)
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     
     
@@ -85,7 +108,7 @@ const Register = () => {
 
     return (
         <Container>
-            <LoginBox>
+            <LoginBox onSubmit={onSubmithandler}>
                 <h5>회원가입</h5>
                 <h4>에어비앤비에 오신 것을 환영합니다.</h4>
                 <p>닉네임</p>
