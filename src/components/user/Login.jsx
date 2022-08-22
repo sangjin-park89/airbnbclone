@@ -1,33 +1,61 @@
-// import react from 'react';
+// import { useState } from 'react';
 import styled from 'styled-components';
-import UseInput from '../../hooks/useInput';
+import UseInput from '../../hooks/useInput'
+import { apis } from '../../api/api';
+
 
 const login = () => {
     // 닉네임, 아이디, 비밀번호 확인
-    // const [onNickName, setOnNickName] = UseInput()
+    // const [onId, setOnId] = UseInput()
+    // const [onPassword, setOnPassword] = UseInput()
     const userId = UseInput();
     const userPassword = UseInput();
+    // const [value, setValue] = useState({
+    //     id: "",
+    //     password: "",
+    // });
+    
+    // onChangeHandler = (e) = {
+    //     setValue((prev) => ({...prev, [e.target.name]:e.target.value}))
+    // }
     
     // const { userId.state, userId.onChange } = useInput();
-    // const body = {
-    //     // 닉네임?
-    //     userUsername : userId.state,
-    //     userPassword : userPassword.state
-    // }
+    const body = {
+        userUsername : userId,
+        userPassword : userPassword
+    }
+    
+    const onSubmithandler = (e) => {
+        e.preventDefault()
+        console.log(body)
+        try{
+            apis.login(
+                {
+                    userUsername : userId,
+                    userPassword : userPassword
+                }
+            )
+            alert("로그인 성공")
+        } catch (error) {
+            alert("로그인 다시시도")
+        }
+    }
     
     return (
         <Container>
-            <LoginBox>
+            <LoginBox onSubmit={onSubmithandler}>
                 <h5>로그인</h5>
                 <h4>에어비앤비에 오신 것을 환영합니다.</h4>
                 {/* <p>닉네임</p>
                 <input onChange={setOnNickName}></input> */}
                 <p>아이디</p>
-                <input type='text' value={userId.state} onChange={userId.onChange}></input>
+                <input type='text' {...userId}></input>
+                {/* <input type='text' onChange={setOnId}></input> */}
                 <p>비밀번호</p>
-                <input type='password' value={userPassword.state} onChange={userPassword.onChange}></input>
+                <input type='password' {...userPassword}></input>
+                {/* <input type='password' onChange={setOnPassword}></input> */}
                 <br />
-                <StButton type='button' onClick={console.log()}>로그인</StButton>
+                <StButton>로그인</StButton>
             </LoginBox>
         </Container>
     );

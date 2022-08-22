@@ -12,7 +12,7 @@ function FetchTest() {
     useEffect(() => {
         dispatch()
     },[])
-
+    
     return (
         <div>
             hi!
