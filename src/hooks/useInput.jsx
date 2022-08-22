@@ -5,7 +5,7 @@ export default function useInput(defaultValue = null) {
 
     const onChange = (event) => {setState(event.target.value)}
 
-    return [state, onChange];
+    return {state, onChange};
 }
 
 // 사용법

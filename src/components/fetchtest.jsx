@@ -4,10 +4,10 @@ import { apis } from "../api/api";
 
 function FetchTest() {
 
-    useEffect(async () => {
-        const response = await axios.get('http://localhost:5001/reviews')
-        console.log(response.data);
-    }, [])
+    // useEffect(async () => {
+    //     const response = await axios.get('http://localhost:5001/reviews')
+    //     console.log(response.data);
+    // }, [])
     
     return (
         <div>
