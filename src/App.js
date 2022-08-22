@@ -11,12 +11,12 @@ import Register from "./components/user/Register";
 import Login from "./components/user/Login";
 import SlideMenu from "./components/slidemenu/SlideMenu";
 // 테스트용 임시
-import FetchTest from "./components/fetchtest";
+// import FetchTest from "./components/fetchtest";
 
 function App() {
     return (
         <>
-        <FetchTest />
+        {/* <FetchTest /> */}
             <div>
                 <div>로고</div>
                 <div>검색 창</div>

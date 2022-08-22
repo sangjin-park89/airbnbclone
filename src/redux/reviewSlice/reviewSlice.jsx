@@ -24,13 +24,13 @@ const fetchGetReviews = createAsyncThunk(
 //     }
 // )
 
-const fetchRemoveReview = createAsyncThunk(
-    'review/fetchRemoveReview',
-    async (postId) => {
-        const response = await apis.deletePostCard(postId)
-        return response.data
-    }
-)
+// const fetchRemoveReview = createAsyncThunk(
+//     'review/fetchRemoveReview',
+//     async (postId) => {
+//         const response = await apis.deletePostCard(postId)
+//         return response.data
+//     }
+// )
 
 // 리듀서, 추가 리듀서
 export const reviewSlice = createSlice({

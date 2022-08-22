@@ -6,8 +6,8 @@ import { saveToken, getToken, removeToken} from '../utils/auth'
 
 // 인스턴스 생성
 const api = axios.create({
-    baseURL: 'http://localhost:5001',
-    withCredentials: true,
+    baseURL: 'http://54.180.220.222:8080',
+    // withCredentials: true,
     headers: {
         'content-type': 'application/json;charset=UTF-8',
         accept: 'application/json',
@@ -16,7 +16,7 @@ const api = axios.create({
 
 const apiMultiType = axios.create({
     baseURL: 'http://localhost:5001',
-    withCredentials: true,
+    // withCredentials: true,
     headers: {
         'content-type': 'multitype/form-data'
     }
@@ -46,7 +46,7 @@ apiMultiType.interceptors.request.use((config) => {
 // apis
 export const apis = {
     //로그인
-    login: (userData) => api.post('/user/login', userData),
+    login: (userData) => api.post('/api/user/login', userData),
     // 회원가입 
     signup: (userData) => api.post('/user/signup', userData),
     // 아이디 중복 검사 (추가요소)
