@@ -6,7 +6,7 @@ const BASE_URL = 'http://54.180.220.222:8080';
 
 // 인스턴스 생성
 const api = axios.create({
-    baseURL: BASE_URL,
+    baseURL: "http://54.180.220.222:8080",
     // withCredentials: true,
     headers: {
         'content-type': 'application/json;charset=UTF-8',
@@ -52,7 +52,7 @@ export const apis = {
     // 아이디 중복 검사 (추가요소)
 
     // 메인 페이지 조회
-    getAllPostCard: () => api.get('/api/posts'),
+    getAllPostCard: () => api.get(`/api/posts`),
 
     //게시글 작성 - 수정 소요 있을 수 있음
     postPostCard: (postData) => apiMultiType.post('/api/posts', postData),
