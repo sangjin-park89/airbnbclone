@@ -15,7 +15,8 @@ function MainPage() {
     if(error) return <div>{error}</div>
 
     const postCardData = postCards.data.data;
-    console.log(postCardData)
+    // console.log(postCardData)
+
     return (
         <div className="flex-container">
             {postCardData.map((each) => {

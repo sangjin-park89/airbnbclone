@@ -11,7 +11,7 @@ function PostCard({postAddress, postFee, postTitle, imageFiles, reviewStar}) {
             <div className="card__image">
                 <AiOutlineHeart />
                 <picture>
-                    <img src="" alt="임시 이미지" />
+                    <img src={image[0]} alt="임시 이미지" />
                 </picture>
             </div>
             <div className="card__description">
@@ -33,7 +33,7 @@ function PostCard({postAddress, postFee, postTitle, imageFiles, reviewStar}) {
                             <span>7월 2일~8일</span>
                         </div>
                         <div>
-                            <span>{postFee}</span>
+                            <span>{postFee}원</span>
                         </div>
                         <div>
                             <span>{postAddress}</span>

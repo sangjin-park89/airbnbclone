@@ -14,6 +14,7 @@ import HostRegistrationIntro from "./pages/HostRegistrationIntro";
 // 테스트용 임시
 import FetchTest from "./components/fetchtest";
 import HostRegistrationPropertyTypeGroup from "./pages/HostRegistrationPropertyTypeGroup";
+import RegistrationRoute from "./routes/RegistrationRoute";
 
 function App() {
     return (
@@ -26,7 +27,6 @@ function App() {
                 <div>호스트 되기</div>
                 <div>드롭다운(로그인)</div>
             </div>
-            <SlideMenu />
             <Routes>
                 <Route path="/" element={<MainPage />} />
                 <Route path="/login" element={<Login />} />
@@ -35,7 +35,7 @@ function App() {
                 <Route path="/detail">
 					<Route path=":postid" element={<DetailPage />} />
 				</Route>
-                <Route path="/host" element={<HostRegistrationIntro />}></Route>
+                <Route path="/hostregistration" element={<RegistrationRoute />} />
 				<Route path="*" element={<NotFoundPage />} />
             </Routes>
         </>

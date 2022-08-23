@@ -1,10 +1,10 @@
 import React from "react";
 import { FaAirbnb } from "react-icons/fa"
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import registerpage from "../image/registerpage.png"
 
 const HostRegistrationPropertyTypeGroup = () => {
-
+    const [submitValue, setSubmitValue] = useOutletContext();
     
     return (
         <main className="regi-container">
