@@ -11,7 +11,7 @@ const reviewAdapter = createEntityAdapter({
 export const fetchGetReviews = createAsyncThunk(
     'reviews/fetchGetReviews',
     async () => {
-        const response = await axios.get("https://jsonplaceholder.typicode.com/comments");
+        const response = await apis.get("https://jsonplaceholder.typicode.com/comments");
         return response.data;
     }
 )

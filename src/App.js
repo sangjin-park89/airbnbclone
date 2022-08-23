@@ -16,7 +16,7 @@ import FetchTest from "./components/fetchtest";
 function App() {
     return (
         <>
-        <FetchTest />
+        <SlideMenu />
             {/* <div>
                 <div>로고</div>
                 <div>검색 창</div>
