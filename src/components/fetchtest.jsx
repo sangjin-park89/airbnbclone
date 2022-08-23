@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
-import { fetchGetReviews } from '../redux/reviewSlice/reviewSlice';
-import {useDispatch} from "react-redux"
+// import React, { useEffect } from "react";
+// import { fetchGetReviews } from '../redux/reviewSlice/reviewSlice';
+// import {useDispatch} from "react-redux"
 
-const Fetchtest = () => {
-    const dispatch = useDispatch();
+// const Fetchtest = () => {
+//     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(fetchGetReviews())
-    }, [])
+//     useEffect(() => {
+//         dispatch(fetchGetReviews())
+//     }, [])
     
 
-    return <div>fetchtest</div>
-};
+//     return <div>fetchtest</div>
+// };
 
-export default Fetchtest;
+// export default Fetchtest;
