@@ -309,10 +309,49 @@ select {
   height: 100%;
   width: 100%;
   border: 1px solid green;
+  object-fit: cover;
 }
+
+.heart_cont {
+  position: absolute;
+  font-size: 24px;
+  top: 10px;
+  left: 90%;
+  fill: rgba(0, 0, 0, 0.5);
+  color:#fff;
+  cursor: pointer;
+  border: none;
+  background-color: transparent; 
+
+}
+
+.heart_icon {
+  display:block;
+  
+  stroke: var(--f-mkcy-f);
+  stroke-width: 2;
+  overflow: visible;
+}
+
+.image_container {
+  object-fit: cover;
+  display: inline-block;
+  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+.image_lager {
+  object-fit: cover;
+  position: relative;
+}
+
 .card__description {
   position: relative;
 }
+
 .card__heart {
   font-size: 1.25rem;
   position: absolute;
@@ -327,11 +366,12 @@ select {
 }
 
 .description-container {
-  display: flex;
+  width: 100%;
 }
 
 .star-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  position: right;
 }

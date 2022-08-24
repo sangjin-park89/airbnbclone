@@ -9,6 +9,7 @@ import DetailPage from "./pages/DetailPage";
 import NotFoundPage from "./pages/NotFoundPage.jsx"
 import Register from "./components/user/Register";
 import Login from "./components/user/Login";
+import Header from "./components/Header";
 import SlideMenu from "./components/slidemenu/SlideMenu";
 import HostRegistrationIntro from "./pages/HostRegistrationIntro";
 // 테스트용 임시
@@ -18,14 +19,7 @@ import HostRegistrationPropertyTypeGroup from "./pages/HostRegistrationPropertyT
 function App() {
     return (
         <>
-            <SlideMenu />
-            <div>
-
-                <div>로고</div>
-                <div>검색 창</div>
-                <div>호스트 되기</div>
-                <div>드롭다운(로그인)</div>
-            </div>
+            <Header />
             <SlideMenu />
             <Routes>
                 <Route path="/" element={<MainPage />} />

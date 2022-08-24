@@ -9,10 +9,14 @@ function PostCard({postAddress, postFee, postTitle, imageFiles, reviewStar}) {
     return (
         <div className="card col-3">
             <div className="card__image">
-                <AiOutlineHeart />
-                <picture>
-                    <img src="" alt="임시 이미지" />
-                </picture>
+                <button className="heart_cont">
+                    <AiOutlineHeart className="heart_icon" />
+                </button>
+                <div className="image_container">
+                    <div className="image_larger" >
+                        <img src={image[0]} alt="임시 이미지" />
+                    </div>
+                </div>
             </div>
             <div className="card__description">
                 <div className="description-container">
