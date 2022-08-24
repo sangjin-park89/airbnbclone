@@ -1,8 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaAirbnb } from "react-icons/fa"
 import "../style/dist/css/main.css"
 const HostRegistrationIntro = () => {
+    const navigate = useNavigate()
+
+    const onSubmitHandler = () => {
+        navigate("../price")
+    }
+
+
     return (
         <div className="intro-container">
             <div className="intro-movie">
@@ -40,7 +47,7 @@ const HostRegistrationIntro = () => {
                 </div>
                 <div className="intro-rightfooter">
                     <Link to="/">
-                        <button className="intro-button">시작하기</button>
+                        <button onClick={onSubmitHandler} className="intro-button">시작하기</button>
                     </Link>
                 </div>
             </div>

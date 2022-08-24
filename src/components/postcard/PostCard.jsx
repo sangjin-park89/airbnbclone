@@ -7,7 +7,7 @@ function PostCard({postAddress, postFee, postTitle, imageFiles, reviewStar}) {
     const image = imageFiles;
     console.log(image);
     return (
-        <div className="card col-3">
+        <div className="card col-2">
             <div className="card__image">
                 <AiOutlineHeart />
                 <picture>

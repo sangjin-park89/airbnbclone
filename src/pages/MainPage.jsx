@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 import { apis } from "../api/api";
 import { useAsync } from "../hooks/useAsync";
 import PostCard from "../components/postcard/PostCard";
@@ -8,7 +8,6 @@ import "../style/dist/css/main.css"
 
 
 function MainPage() {
-
     const {loading, error, value: postCards } = useAsync(apis.getAllPostCard);
     
     if(loading) return <div>...로딩 중...</div>

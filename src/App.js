@@ -35,7 +35,7 @@ function App() {
                 <Route path="/detail">
 					<Route path=":postid" element={<DetailPage />} />
 				</Route>
-                <Route path="/hostregistration" element={<RegistrationRoute />} />
+                <Route path="/hostregistration/*" element={<RegistrationRoute />} />
 				<Route path="*" element={<NotFoundPage />} />
             </Routes>
         </>
