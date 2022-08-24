@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaAirbnb } from "react-icons/fa"
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import registerpage from "../image/registerpage.png"
 
 const HostRegistrationPropertyTypeGroup = () => {
-
+    const [submitValue, setSubmitValue] = useOutletContext();
+    const [homeType, setHomeType] = useState();
     
+    console.log(homeType);
+
     return (
         <main className="regi-container">
             <div className="regi-left">
@@ -26,22 +29,22 @@ const HostRegistrationPropertyTypeGroup = () => {
             <div className="regi-rightcontent">
                 <div className="regi-rightcontentcontainer">
                     <div className="regi-rightbtncontainer">
-                        <button className="regi-rightbtn">아파트</button>
+                        <button onClick={() => {setHomeType("apartment")}} className="regi-rightbtn">아파트</button>
                     </div>
                     <div className="regi-rightbtncontainer">
-                        <button className="regi-rightbtn">주택</button>
+                        <button onClick={() => {setHomeType("house")}} className="regi-rightbtn">주택</button>
                     </div>
                     <div className="regi-rightbtncontainer">
-                        <button className="regi-rightbtn">별채</button>
+                        <button onClick={() => {setHomeType("outhouse")}} className="regi-rightbtn">별채</button>
                     </div>
                     <div className="regi-rightbtncontainer">
-                        <button className="regi-rightbtn">독특한 숙소</button>
+                        <button onClick={() => {setHomeType("exclusive")}} className="regi-rightbtn">독특한 숙소</button>
                     </div>
                     <div className="regi-rightbtncontainer">
-                        <button className="regi-rightbtn">B&B</button>
+                        <button onClick={() => {setHomeType("bandb")}} className="regi-rightbtn">B&B</button>
                     </div>
                     <div className="regi-rightbtncontainer">
-                        <button className="regi-rightbtn">부티크 호텔</button>
+                        <button onClick={() => {setHomeType("boutique")}} className="regi-rightbtn">부티크 호텔</button>
                     </div>
                 </div>
                 <div>

@@ -7,7 +7,7 @@ function PostCard({postAddress, postFee, postTitle, imageFiles, reviewStar}) {
     const image = imageFiles;
     console.log(image);
     return (
-        <div className="card col-3">
+        <div className="card col-2">
             <div className="card__image">
                 <button className="heart_cont">
                     <AiOutlineHeart className="heart_icon" />
@@ -37,7 +37,7 @@ function PostCard({postAddress, postFee, postTitle, imageFiles, reviewStar}) {
                             <span>7월 2일~8일</span>
                         </div>
                         <div>
-                            <span>{postFee}</span>
+                            <span>{postFee}원</span>
                         </div>
                         <div>
                             <span>{postAddress}</span>

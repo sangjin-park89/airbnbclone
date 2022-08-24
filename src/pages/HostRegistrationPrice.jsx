@@ -3,7 +3,7 @@ import { FaAirbnb } from "react-icons/fa"
 import { Link } from "react-router-dom";
 import registerpage from "../image/registerpage.png"
 
-const HostRegistrationPrivacyType = () => {
+const HostRegistrationPrice = () => {
 
     
     return (
@@ -13,7 +13,7 @@ const HostRegistrationPrivacyType = () => {
                     <Link to="/"><FaAirbnb /></Link>
                 </div>
                 <div className="regi-title">
-                    <h1>게스트가 머무를 숙소의 종류가 무엇인가요?</h1>
+                    <h1>숙소 위치는 어디인가요?</h1>
                 </div>
             </div>
             <div className="regi-rightheader">
@@ -26,13 +26,10 @@ const HostRegistrationPrivacyType = () => {
             <div className="regi-rightcontent">
                 <div className="regi-rightcontentcontainer">
                     <div className="regi-rightbtncontainer">
-                        <button className="regi-rightbtn">공간 전체</button>
-                    </div>
-                    <div className="regi-rightbtncontainer">
-                        <button className="regi-rightbtn">개인실</button>
-                    </div>
-                    <div className="regi-rightbtncontainer">
-                        <button className="regi-rightbtn">다인실</button>
+                        <form>
+                            <label htmlFor="price"></label>
+                            <input type="text" placeholder="가격을 정해주세요" id="price"/>
+                        </form>
                     </div>
                 </div>
                 <div>
@@ -43,4 +40,4 @@ const HostRegistrationPrivacyType = () => {
     )
 };
 
-export default HostRegistrationPrivacyType;
+export default HostRegistrationPrice;
