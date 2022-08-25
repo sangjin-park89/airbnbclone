@@ -23,9 +23,9 @@ function PostCard({postAddress, postFee, postTitle, imageFiles, reviewStar}) {
                             <div>
                                 <span className="card_id">Abiansemal, 인도네시아</span>
                             </div>
-                            <div >
+                            <div className="name_star">
                                 <FaStar />
-                                <span>{reviewStar}</span>
+                                <span >{reviewStar}</span>
                             </div>
                         </div>
                         <div>

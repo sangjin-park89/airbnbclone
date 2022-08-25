@@ -33,7 +33,11 @@ function Header(params) {
 
                 </Btn>
                 <Posting>호스트 되기 </Posting>
+
+                <Link to={'/register'}>
                 <Icon><MdLanguage /></Icon>
+                </Link>
+
                 <DropDown>
                     <Link to='/login'>
                     <HiMenu className="icon" />
@@ -128,8 +132,8 @@ const ThirdButton = styled.button`
     box-shadow: 1px 1px 3px 1px #d3d3d3;
     .glass{
         color: #ffffff;
-        font-size: 18px;
-        margin-left: 5px;
+        font-size: 16px;
+        margin-left: 8px;
         border: 2px solid hsl(358, 100%, 68%);
         border-radius: 50%;
         background-color: hsl(358, 100%, 68%);
@@ -161,7 +165,7 @@ const Icon = styled.button`
     align-items: center;
     height: 40px;
     width: 40px;
-    margin-top: 21px;
+    margin-top: 26px;
     margin-left: 20px;
     padding-bottom: 5px;
     font-size: 22px;

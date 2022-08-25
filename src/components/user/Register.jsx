@@ -1,6 +1,8 @@
 import { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import { apis } from '../../api/api';
+import { Link } from 'react-router-dom';
+import { FaAirbnb } from 'react-icons/fa';
 
 const Register = () => {
     // 닉네임, 아이디, 비밀번호 확인
@@ -104,68 +106,131 @@ const Register = () => {
     
 
     return (
+        <>
+        <Link to={'/'}><Logo><FaAirbnb/></Logo></Link>
         <Container>
             <SignInBox onSubmit={onSubmithandler}>
                 <h5>회원가입</h5>
+                <div className='line'></div>
                 <h4>에어비앤비에 오신 것을 환영합니다.</h4>
-                <p>닉네임</p>
+                <p className='input_name'>닉네임</p>
                 <input type="text" placeholder='닉네임 입력' onChange={onChangeNickName} />
-                <br />
+                
                 {nickName.length > 0 && isNickName ? 
-                <span>{nickNameMessege}</span>
+                <span style={{color:"blue"}}>{nickNameMessege}</span>
                  : 
-                <span>{nickNameMessege}</span>
+                <span style={{color:"red"}}>{nickNameMessege}</span>
                 }
 
-                <p>아이디</p>
+                <p className='input_name'>아이디</p>
                 <input type="text" placeholder='아이디 입력' onChange={onChangeId} />
-                <br />
+                
                 {id.length > 0 && isId ? 
-                <span>{idMessege}</span>
+                <span style={{color:"blue"}}>{idMessege}</span>
                  : 
-                <span>{idMessege}</span>
+                <span style={{color:"red"}}>{idMessege}</span>
                 }
 
-                <p>비밀번호</p>
+                <p className='input_name'>비밀번호</p>
                 <input type="text" placeholder='비밀번호 입력' onChange={onChangePW} />
-                <br />
+                
                 {pW.length > 0 && isPW ? 
-                <span>{pWMessege}</span>
+                <span style={{color:"blue"}}>{pWMessege}</span>
                  : 
-                <span>{pWMessege}</span>
+                <span style={{color:"red"}}>{pWMessege}</span>
                 }
 
-                <p>비밀번호 확인</p>
+                <p className='input_name'>비밀번호 확인</p>
                 <input type="text" placeholder='비밀번호 한번 더 입력' onChange={onChangePWConfirm} />
-                <br />
+                
                 {pWConfirm.length > 0 && isPWConfirm ? 
-                <span>{pWConfirmMessege}</span>
+                <span style={{color:"blue"}}>{pWConfirmMessege}</span>
                  : 
-                <span>{pWConfirmMessege}</span>
+                <span style={{color:"red"}}>{pWConfirmMessege}</span>
                 }
                 <br />
                 <StButton>회원가입</StButton>
+                <Link to={'/login'}><LoginPage>로그인</LoginPage></Link>
             </SignInBox>
         </Container>
+        </>
     );
 }
 
 export default Register
 
+const Logo = styled.div`
+    display: flex;
+    margin-top: 22px;
+    margin-left: 2vw;
+    padding-right: 10px;
+    font-size: 40px;
+    color: hsl(358, 100%, 68%);
+    cursor: pointer;
+`
+
 const Container = styled.div`
     display: grid;
-    justify-content: center;
-    text-align : center;
-    min-height: 100vh;
+    width: 568px;
+    height: 690px;
+    margin: 5rem auto 0 auto;
+    border: 1px solid #d6d6d6;
+    border-radius: 15px;
 `
 
 const SignInBox = styled.form`
-    height : 300px;
-    width : 500px;
-    padding: 3rem;
+    width: 100%;
+    height: 100%;
+    /* padding: 3rem; */
     border-radius: 1rem;
+
+    > h5 {
+        margin:20px 0 13px 0;
+        text-align: center;
+        padding-bottom: 7px;
+        font-size: 17px;
+    }
+
+    .line{ border-bottom: 1px solid #d6d6d6; }
+
+    > h4 {
+        margin:30px 0 25px 15px;
+        font-size: 20px;
+    }
+
+    > input {
+        display: flex;
+        margin:0 0 -1px 20px;
+        width: 90%;
+        height: 7.5%;
+        border: 1px solid #9e9e9e;
+        border-radius: 12px;
+    }
+    .input_name{
+        margin-left: 20px;
+        font-size: 17px;
+        font-weight: 600;
+    }
+    > span {
+        margin: 0 0 0 20px;
+        font-size: 14px;
+    }
 `
 
 const StButton = styled.button`
-    margin-top : 20px;
+    margin: 30px 0 5px 18px;
+    border:none;
+    background-color: hsl(358, 100%, 68%);
+    color: #ffffff;
+    border-radius: 8px;
+    width: 93%;
+    height: 7.5%;
+    cursor: pointer;
 `
+
+const LoginPage = styled.p`
+    display:flex;
+    justify-content: end;
+    margin-right: 25px;
+    cursor: pointer;
+ `
