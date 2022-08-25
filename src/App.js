@@ -14,7 +14,6 @@ import HostRegistrationIntro from "./pages/HostRegistrationIntro";
 import FetchTest from "./components/fetchtest";
 import HostRegistrationPropertyTypeGroup from "./pages/HostRegistrationPropertyTypeGroup";
 import RegistrationRoute from "./routes/RegistrationRoute";
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
     return (
