@@ -7,6 +7,8 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { getToken } from "../utils/auth";
 
+// const BASE_URL = process.env.REACT_APP_SERVER_URL;
+
 const HostRegistrationPrice = () => {
     const [submitValue, setSubmitValue] = useOutletContext();
     const {state:data, onChange} = useInput();
