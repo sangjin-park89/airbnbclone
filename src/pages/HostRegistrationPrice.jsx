@@ -7,39 +7,31 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { getToken } from "../utils/auth";
 
+// const BASE_URL = process.env.REACT_APP_SERVER_URL;
+
 const HostRegistrationPrice = () => {
     const [submitValue, setSubmitValue] = useOutletContext();
-    const {state, onChange} = useInput();
+    const {state:data, onChange} = useInput();
     const navigate = useNavigate();
     const imageLs = useSelector(state => state.postimage);
 
-    const inputRef = useRef()
-
     const onClickHandler = () => {
-        // setSubmitValue(() => {
-        //     return {...submitValue, "postFee":data}
-        // })
 
-        //alternative
-        const enteredprice = inputRef.current.value
-        const charge = { "postFee": enteredprice }
-
+        const allData = {...submitValue, "postFee": data }
+        
         const formdata = new FormData();
 
-        formdata.append("requestDto", new Blob([JSON.stringify(submitValue)], {type: "application/json"}));
-        formdata.append("requestDto", new Blob([JSON.stringify(charge)], {type: "application/json"}));
+        formdata.append("requestDto", new Blob([JSON.stringify(allData)], {type: "application/json"}));
         formdata.append("postImage", imageLs.postimage[0][0])
         formdata.append("postImage", imageLs.postimage[0][1])
         formdata.append("postImage", imageLs.postimage[0][2])
         formdata.append("postImage", imageLs.postimage[0][3])
         formdata.append("postImage", imageLs.postimage[0][4])
-
-        //https://clone-airbnb-t2.herokuapp.com/
-        //http://54.180.220.222:8080/api/posts
+        
         try {
             const fetch = async (formdata) => {
                 const accessToken = getToken();
-                const response = axios.post("https://clone-airbnb-t2.herokuapp.com/api/posts", formdata, {
+                const response = axios.post("http://54.180.220.222:8080/api/posts", formdata, {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                         "content-type": "multipart/form-data"
@@ -51,7 +43,6 @@ const HostRegistrationPrice = () => {
         catch (error){
             console.log("에러!", error)
         }
-
     }
     
     return (
@@ -90,7 +81,7 @@ const HostRegistrationPrice = () => {
                     <div className="select-inner">
                         <div className="select-btn-wrapper">
                             <div className="price-wrapper">
-                                <input className="price__input" ref={inputRef} type="text" placeholder="$00" id="price"/>
+                                <input className="price__input" onChange={onChange} type="text" placeholder="$00" id="price"/>
                                 <div className="price__inputdiv">/박</div>
                             </div>
                             

@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { apis } from "../api/api";
 import { useAsync } from "../hooks/useAsync";
 import PostCard from "../components/postcard/PostCard";
@@ -6,25 +6,47 @@ import { Link } from "react-router-dom";
 import "../style/dist/css/main.css"
 //
 import Header from "../components/Header";
-
 import SlideMenu from "../components/slidemenu/SlideMenu";
 
 
 
 function MainPage() {
-    const {loading, error, value: postCards } = useAsync(apis.getAllPostCard);
+    const [currentIndex, setCurrentIndex] = useState("");
+    const [dataList, setDataList] = useState([]);
+    // const {loading, error, value: postCards } = useAsync(apis.getAllPostCard, [currentIndex]);
     
-    if(loading) return <div>...로딩 중...</div>
-    if(error) return <div>{error}</div>
+    // if(loading) return <div>...로딩 중...</div>
+    // if(error) return <div>{error}</div>
+    // const postCardList = postCards.data.data;
 
-    const postCardData = postCards.data.data;
-
+    useEffect(() => {
+        const main = async () => {
+            try{    
+                const response = await apis.getAllPostCard();
+                const postList = response.data.data;
+                
+                if(currentIndex == "") {
+                    setDataList(postList)
+                }
+                else{
+                    const filteredList = postList.filter((each) => {
+                        return each.postCategory == currentIndex
+                    })
+                    setDataList(filteredList)
+                }
+            }catch (err){
+                console.log(err)
+            } 
+        }
+        main();
+    }, [currentIndex])
+    
     return (
         <>
             <Header />
-            <SlideMenu />
+            <SlideMenu currentIndex={currentIndex} setCurrentIndex={setCurrentIndex}/>
             <div className="flex-container">
-                {postCardData.map((each) => {
+                {dataList.map((each) => {
                     return (
                         <div className="flex-item">
                             <PostCard

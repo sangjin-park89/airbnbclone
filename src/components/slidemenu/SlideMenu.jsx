@@ -6,29 +6,29 @@ import { RiAncientGateLine, RiAncientPavilionLine } from 'react-icons/ri'
 
 
 // BiChevronLeftCircle()
-const SlideMenu = () => {
+const SlideMenu = ({ currentIndex, setCurrentIndex }) => {
 
     return (
         <Category>
             <FlexBox>
                 
-                <StBtn>
+                <StBtn onClick={() => {setCurrentIndex("통나무집"); console.log(currentIndex)}}>
                     <MdOutlineCabin className="icon"/><br />
                     통나무집
                 </StBtn>
-                <StBtn>
+                <StBtn onClick={() => {setCurrentIndex("캐슬"); console.log(currentIndex)}}>
                     <FaArchway className="icon"/><br />
                     캐슬
                 </StBtn>
-                <StBtn>
+                <StBtn onClick={() => {setCurrentIndex("한옥"); console.log(currentIndex)}}>
                     <RiAncientGateLine className="icon"/><br />
                     한옥
                 </StBtn>
-                <StBtn>
+                <StBtn onClick={() => {setCurrentIndex("료칸"); console.log(currentIndex)}}>
                     <RiAncientPavilionLine className="icon" /><br />
                     료칸
                 </StBtn>
-                <StBtn>
+                <StBtn onClick={() => {setCurrentIndex("쉐어하우스"); console.log(currentIndex)}}>
                     <MdPeopleOutline className="icon"/><br />
                     쉐어하우스
                 </StBtn>
