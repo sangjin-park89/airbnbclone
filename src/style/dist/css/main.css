@@ -105,19 +105,6 @@ select {
   padding: 4px;
 }
 
-.flex-container {
-  margin: 0 auto;
-  width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.flex-item {
-  width: 30%;
-  margin-bottom: 2rem;
-}
-
 .intro-container {
   position: relative;
   width: 100vw;
@@ -229,6 +216,7 @@ select {
   width: 100%;
   border: 1px solid green;
 }
+
 .card__description {
   position: relative;
 }

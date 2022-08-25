@@ -3,6 +3,7 @@ import { FaAirbnb, FaParking, FaSwimmingPool, FaWifi, FaWind, FaPlay } from "rea
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import "../style/dist/css/host.css"
 
+
 const HostRegistrationAmenities = () => {
     const [submitValue, setSubmitValue] = useOutletContext()
     const navigate = useNavigate()
