@@ -32,7 +32,7 @@ function Header(params) {
                     </ThirdButton>
 
                 </Btn>
-                <Posting>호스트 되기 </Posting>
+                <Link to={'/hostregistration'}><Posting>호스트 되기 </Posting></Link>
 
                 <Link to={'/register'}>
                 <Icon><MdLanguage /></Icon>

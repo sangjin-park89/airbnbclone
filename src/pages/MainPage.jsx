@@ -7,6 +7,7 @@ import "../style/dist/css/main.css"
 //
 import Header from "../components/Header";
 import SlideMenu from "../components/slidemenu/SlideMenu";
+import Footer from "../components/Footer";
 
 
 
@@ -61,6 +62,7 @@ function MainPage() {
                     )
                 })}
             </div>
+            <Footer />
         </>
     )
 }
