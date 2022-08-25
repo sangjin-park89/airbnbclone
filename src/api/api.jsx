@@ -2,14 +2,14 @@ import axios from 'axios';
 import { saveToken, getToken, removeToken } from '../utils/auth'
 
 // 서버 연결시 해제 
-const BASE_URL = 'http://54.180.220.222:8080';
+const BASE_URL = process.env.REACT_APP_SERVER_URL;
 
 // 인스턴스 생성
 const api = axios.create({
-    baseURL: "http://54.180.220.222:8080",
+    baseURL: BASE_URL,
     // withCredentials: true,
     headers: {
-        'content-type': 'application/json;charset=UTF-8',
+        'Content-Type': 'application/json;charset=UTF-8',
         accept: 'application/json',
     },
 });
@@ -17,9 +17,10 @@ const api = axios.create({
 const apiMultiType = axios.create({
     baseURL: BASE_URL,
     // withCredentials: true,
+    // credentials: true,
     headers: {
-        'content-type': 'multitype/form-data'
-    }
+        'Content-Type': 'multipart/form-data'
+    },
 })
 
 // 인터셉터 

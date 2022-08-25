@@ -36,9 +36,10 @@ const Login = () => {
                 }
             )
 
-            const accessToken = response?.data?.accessToken;
-            if(accessToken) {
-                saveToken(accessToken);
+            const Token = response.data.data.accessToken;
+            console.log("액세스토큰", Token)
+            if(Token) {
+                saveToken(Token);
                 navigate('/');
             };
             console.log(response)
