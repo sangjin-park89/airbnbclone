@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaAirbnb } from "react-icons/fa"
+
 import "../style/dist/css/main.css"
 const HostRegistrationIntro = () => {
     const navigate = useNavigate()

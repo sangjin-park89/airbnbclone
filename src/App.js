@@ -14,6 +14,7 @@ import HostRegistrationIntro from "./pages/HostRegistrationIntro";
 import FetchTest from "./components/fetchtest";
 import HostRegistrationPropertyTypeGroup from "./pages/HostRegistrationPropertyTypeGroup";
 import RegistrationRoute from "./routes/RegistrationRoute";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
     return (
@@ -23,8 +24,8 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
 				{/* {/* 여기서부터는 api명세와 컴포넌트명 확인하고 이름 고치기 */}
-                <Route path="/detail">
-					<Route path=":postid" element={<DetailPage />} />
+                <Route path="/detail" element={<DetailPage />}>
+					<Route path=":postid"  />
 				</Route>
                 <Route path="/hostregistration/*" element={<RegistrationRoute />} />
 				<Route path="*" element={<NotFoundPage />} />

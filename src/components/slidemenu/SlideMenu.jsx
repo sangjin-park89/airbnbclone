@@ -57,7 +57,7 @@ const StBtn = styled.button`
     background: #ffffff;
     color: #767676;
     font-size: 12px;
-    margin: 20px 20px 0 20px;
+    margin: 10px 20px 0 20px;
     .icon {
         font-size: 25px;
         margin-bottom: 8px;

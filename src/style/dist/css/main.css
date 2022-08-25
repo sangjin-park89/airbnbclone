@@ -105,19 +105,6 @@ select {
   padding: 4px;
 }
 
-.flex-container {
-  margin: 0 auto;
-  width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.flex-item {
-  width: 30%;
-  margin-bottom: 2rem;
-}
-
 .intro-container {
   position: relative;
   width: 100vw;
@@ -251,7 +238,7 @@ select {
 .regi-rightbtn {
   min-height: 88px;
   background-color: #fff;
-  border: 1px solid #808080;
+  /* border: 1px solid #808080; */
   border-radius: 12px;
   width: 100%;
   cursor: pointer;
@@ -293,59 +280,6 @@ select {
 .form__file-container {
   margin: 5px;
   padding: 5px;
-}
-
-.card {
-  display: flex;
-  justify-items: center;
-  flex-direction: column;
-  border: 1px solid red;
-  width: 352px;
-  height: 434px;
-  position: relative;
-}
-.card__image {
-  border-radius: 0.5rem;
-  height: 100%;
-  width: 100%;
-  border: 1px solid green;
-  object-fit: cover;
-}
-
-.heart_cont {
-  position: absolute;
-  font-size: 24px;
-  top: 10px;
-  left: 90%;
-  fill: rgba(0, 0, 0, 0.5);
-  color:#fff;
-  cursor: pointer;
-  border: none;
-  background-color: transparent; 
-
-}
-
-.heart_icon {
-  display:block;
-  
-  stroke: var(--f-mkcy-f);
-  stroke-width: 2;
-  overflow: visible;
-}
-
-.image_container {
-  object-fit: cover;
-  display: inline-block;
-  vertical-align: bottom;
-  height: 100%;
-  width: 100%;
-  min-height: 1px;
-  box-sizing: border-box;
-}
-
-.image_lager {
-  object-fit: cover;
-  position: relative;
 }
 
 .card__description {

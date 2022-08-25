@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "../style/dist/css/main.css"
 //
 import Header from "../components/Header";
+import SlideMenu from "../components/slidemenu/SlideMenu";
 
 
 

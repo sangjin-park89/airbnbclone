@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from 'react-router-dom'
+import { FaAirbnb } from 'react-icons/fa'
 
 const HostRegistrationAmenities = () => {
     return (
