@@ -78,11 +78,10 @@ const Container = styled.div`
     justify-content: center;
     text-align : center;
     min-height: 100vh;
+    border: 1px solid #d6d6d6;
 `
 
 const LoginBox = styled.form`
-    height : 300px;
-    width : 300px;
     padding: 3rem;
     border-radius: 1rem;
 `
